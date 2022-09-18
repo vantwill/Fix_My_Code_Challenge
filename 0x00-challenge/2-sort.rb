@@ -10,22 +10,22 @@ ARGV.each do |arg|
     next if arg !~ /^-?[0-9]+$/
 
     # convert to integer
-    t_arg = arg.to_t
-
+    i_arg = arg.to_i
+    
     # insert result at the right position
     is_inserted = false
-    t = 0
+    i = 0
     l = result.size
-    while !is_inserted && t < l do
-        if result[t] < t_arg
-            t += 1
+    while !is_inserted && i < l do
+        if result[i] < i_arg
+            i += 1
         else
-            result.insert(t, t_arg)
+            result.insert(i, i_arg)
             is_inserted = true
             break
         end
     end
-    result << t_arg if !is_inserted
+    result << i_arg if !is_inserted
 end
 
 puts result
